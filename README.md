@@ -35,15 +35,28 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
 * Visuals: layout design
 * Review
 ### Steps to Follow
-- abc
-  Before you make any changes
+  **Vitual tables**
+  - create
     ```bash
-    git remote add upstream https://github.com/Python-World/python-mini-projects.git
-    git fetch upstream
-    git pull upstream master
-    git push
+    Dim_Date = 
+    CALENDAR(
+        DATE(2022, 1, 1),
+        DATE(2024, 12, 31)
+    )
+    Inpast = 
+    VAR lastsalesdate = MAX(Fact_Sales[Date_Time])
+    VAR lastsalesdatePY = EDATE(lastsalesdate,-12)
+    RETURN
+    Dim_Date[Date] <= lastsalesdatePY
     ```
-
+  **The Model: Building Measures and Core Visuals**
+  - create DAX
+     ```bash
+    COGs = SUM(Fact_Sales[COGS_USD])
+    Quantity = SUM(Fact_Sales[quantity])
+    Sales = SUM(Fact_Sales[Sales_USD])
+    Gross Profit = [Sales]-[COGs]
+    ```
 ![sales](https://github.com/tushar2704/tushar2704-GIFs/blob/main/salesd1.gif)
 
 ## [Project 2: Superstore Sales Dashboard with Streamlit](https://github.com/tushar2704/Superstore-Sales-Dashboard-with-Streamlit)
