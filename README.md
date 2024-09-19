@@ -29,11 +29,20 @@ I am a passionate data enthusiast with a strong background in Power BI. I have e
 
 Consumable Performance Dashboard, a powerful and intuitive data visualization tool built using Power BI. This dashboard offers a comprehensive view of "sales, gross profit and quantity" data for consumable plant products, allowing you to quickly and easily analyze performance and identify trends.
 ### Project Structure:
-A condensed, dynamic performance report that utilises ###SWITCH measures and conditional formatting.
+A condensed, dynamic performance report that utilises **SWITCH** measures and conditional formatting.
 * Data: power query and virtual tables
 * Model: Measures calculated column
 * Visuals: layout design
 * Review
+### Steps to Follow
+- abc
+  Before you make any changes
+    ```bash
+    git remote add upstream https://github.com/Python-World/python-mini-projects.git
+    git fetch upstream
+    git pull upstream master
+    git push
+    ```
 
 ![sales](https://github.com/tushar2704/tushar2704-GIFs/blob/main/salesd1.gif)
 
