@@ -25,7 +25,7 @@ Welcome to my personal Power BI portfolio repository! Here you will find a colle
 I am a passionate data enthusiast with a strong background in Power BI. I have extensive experience in transforming raw data into meaningful insights, creating interactive dashboards, and helping businesses make data-driven decisions. This portfolio showcases my proficiency in Power BI and highlights my ability to effectively communicate complex data visually.
 
 ---
-## [Project 1: Sales Dashboard](https://tushar-aggarwal.com/httpsgithubcomtushar2704consumablessalesdashboard)
+## [Project 1: Plant Performance]
 
 Consumable Sales Dashboard, a powerful and intuitive data visualization tool built using Power BI. This dashboard offers a comprehensive view of sales data for consumable products, allowing you to quickly and easily analyze performance and identify trends.
 ## Preview
