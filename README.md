@@ -27,7 +27,7 @@ I am a passionate data enthusiast with a strong background in Power BI. I have e
 ---
 ## [Project 1: Plant Performance]
 
-Consumable Sales Dashboard, a powerful and intuitive data visualization tool built using Power BI. This dashboard offers a comprehensive view of sales data for consumable products, allowing you to quickly and easily analyze performance and identify trends.
+Consumable Performance Dashboard, a powerful and intuitive data visualization tool built using Power BI. This dashboard offers a comprehensive view of "sales, gross profit and quantity" data for consumable plant products, allowing you to quickly and easily analyze performance and identify trends.
 ## Preview
 
 ![sales](https://github.com/tushar2704/tushar2704-GIFs/blob/main/salesd1.gif)
