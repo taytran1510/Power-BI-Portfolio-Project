@@ -52,10 +52,84 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
   **The Model: Building Measures and Core Visuals**
   - create DAX
      ```bash
-    COGs = SUM(Fact_Sales[COGS_USD])
-    Quantity = SUM(Fact_Sales[quantity])
-    Sales = SUM(Fact_Sales[Sales_USD])
-    Gross Profit = [Sales]-[COGs]
+     COGs = SUM(Fact_Sales[COGS_USD])
+     Quantity = SUM(Fact_Sales[quantity])
+     Sales = SUM(Fact_Sales[Sales_USD])
+     Gross Profit = [Sales]-[COGs]
+    ```
+  - create DAX: The PYTD_Sales measure calculates the sales amount for the same period last       year, but only for dates where the Inpast column is TRUE.
+  If today is September 15, 2024, PYTD_Sales will calculate the sales from January 1, 2023, to    September 15, 2023, but only for those dates marked as TRUE in the Inpast column.
+
+     ```bash
+     PYTD_Sales = 
+     CALCULATE(
+ 	           [Sales],
+ 	           SAMEPERIODLASTYEAR(Dim_Date[Date]),
+            	Dim_Date[Inpast] = TRUE
+)
+    ```
+  - create DAX
+     ```bash
+     PYTD_Quantity = 
+                 CALCULATE(
+ 	               [Quantity],
+ 	               SAMEPERIODLASTYEAR(Dim_Date[Date]),
+                	Dim_Date[Inpast] = TRUE
+     )
+
+     PYTD_GrossProfit = 
+     CALCULATE(
+             [Gross Profit],
+             SAMEPERIODLASTYEAR(Dim_Date[Date]),
+     	       Dim_Date[Inpast] = TRUE
+     )
+    ```
+  - create DAX
+     ```bash
+     YTD_Sales = TOTALYTD([Sales], Fact_Sales[Date_Time])
+
+     YTD_Quantity = TOTALYTD([Quantity], Fact_Sales[Date_Time])
+     
+     YTD_GrossProfit = TOTALYTD([GrossProfit], Fact_Sales[Date_Time])
+    ```
+  - create DAX
+     ```bash
+     S_PYTD =
+     VAR selected_value = SELECTEDVALUE(Slc_Values[Values])
+     VAR result = SWITCH(selected_value,
+            	"Sales", [PYTD_Sales],
+            	"Quantity", [PYTD_Quantity],
+            	"Gross Profit", [PYTD_GrossProfit],
+            	Blank()
+     )
+     RETURN
+     result
+    ```
+  - create DAX
+     ```bash
+     S_YTD =
+     VAR selected_value = SELECTEDVALUE(Slc_Values[Values])
+     VAR result = SWITCH(selected_value,
+            	"Sales", [YTD_Sales],
+            	"Quantity", [YTD_Quantity],
+            	"Gross Profit", [YTD_GrossProfit],
+            	Blank()
+     )
+     RETURN
+     result
+    ```
+  - create DAX
+     ```bash
+     YTD vs PYTD = [S_YTD] - [S_PYTD]
+     GP% = DIVIDE([Gross Profit], [Sales])
+    ```
+  - create model view
+  - create charts
+  - create DAX
+     ```bash
+     _Waterfall_title = SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month - Country - Product"
+     _Column Chart title = SELECTEDVALUE(Slc_Values[Values]) & " YTD & PYTD | Month"
+     _Scatter title = "Account Profitability Segmentation | GP% and " & SELECTEDVALUE(Slc_Values[Values])
     ```
 ![sales](https://github.com/tushar2704/tushar2704-GIFs/blob/main/salesd1.gif)
 
