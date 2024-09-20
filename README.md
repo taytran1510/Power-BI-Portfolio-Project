@@ -143,6 +143,7 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
 ## [Project 2: Data Professional Survey Breakdown](/Data_Professional_Survey_BreakDown.pbix)
 
 Developed a comprehensive Data Professional Survey Breakdown using Power BI, analyzing global survey data from 2022. Delivered insights on trends and patterns within the data profession across various regions, industries, and experience levels. 
+
 **Data Cleaning & Processing**
 - Remove duplicate columns
 - Split column for getting number by replace values
