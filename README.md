@@ -28,6 +28,7 @@ I am a passionate data enthusiast with a strong background in Power BI. I have e
 ## [Project 1: Plant Performance]
 
 Consumable Performance Dashboard, a powerful and intuitive data visualization tool built using Power BI. This dashboard offers a comprehensive view of "sales, gross profit and quantity" data for consumable plant products, allowing you to quickly and easily analyze performance and identify trends.
+[Profit_Sales_Products.pbix](/Profit_Sales_Products.pbix)
 ### Project Structure:
 A condensed, dynamic performance report that utilises **SWITCH** measures and conditional formatting.
 * Data: power query and virtual tables
