@@ -139,11 +139,12 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
      _Column Chart title = SELECTEDVALUE(Slc_Values[Values]) & " YTD & PYTD | Month"
      _Scatter title = "Account Profitability Segmentation | GP% and " & SELECTEDVALUE(Slc_Values[Values])
     ```
+---
+## [Project 2: Data Professional Survey Breakdown](/Data_Professional_Survey_BreakDown.pbix)
 
-## [Project 2: Data Professional Survey Breakdown](/Data_Professional_Survey_BreakDown_pbix)
+Developed a comprehensive Data Professional Survey Breakdown using Power BI, analyzing global survey data from 2022. Delivered insights on trends and patterns within the data profession across various regions, industries, and experience levels. 
 
-Superstore Sales with Streamlit is a data visualization and analysis project that uses the Streamlit framework to create an interactive web application for exploring and analyzing sales data from a superstore. This project aims to provide an easy-to-use interface for users to gain insights into sales trends, Sales performance, product performance, Shippin analysis and Location analysis. 
-###### Deployment [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tushar2704-superstore-dashboard.streamlit.app/)
-
+![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/SampleDataProfessionalSurvey.png)
+![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewProfessionalSurvey.png)
 
 
