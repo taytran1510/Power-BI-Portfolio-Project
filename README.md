@@ -143,8 +143,14 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
 ## [Project 2: Data Professional Survey Breakdown](/Data_Professional_Survey_BreakDown.pbix)
 
 Developed a comprehensive Data Professional Survey Breakdown using Power BI, analyzing global survey data from 2022. Delivered insights on trends and patterns within the data profession across various regions, industries, and experience levels. 
-
+**Data Cleaning & Processing**
+- Remove duplicate columns
+- Split column for getting number by replace values
+- Create new column aimed for average salary
+- Format some column such as whole number, etc
+- Do another tasks on purpuse
 ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/SampleDataProfessionalSurvey.png)
+**Charts Visualization**
 ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewProfessionalSurvey.png)
 
 
