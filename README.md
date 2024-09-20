@@ -36,7 +36,7 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
 * Review
 ### Steps to Follow
   **Vitual tables**
-  - create
+  - The measure **Inpast** is designed to filter the dates from the **Dim_Date** table that are less than or equal to one year before the last recorded sales date in **Fact_Sales**. This can be useful for comparisons like **"Same period last year"** (PY), helping analyze data from the prior year relative to the latest sales date.
     ```bash
     Dim_Date = 
     CALENDAR(
@@ -50,16 +50,15 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
     Dim_Date[Date] <= lastsalesdatePY
     ```
   **The Model: Building Measures and Core Visuals**
-  - create DAX
+  - **COGs** calculates the total cost of goods sold. **Quantity** calculates the total number of items sold. **Sales** calculates the total sales amount in USD. **Gross Profit** is the difference between the total sales and the cost of goods sold, giving the gross profit margin (before other expenses).
      ```bash
      COGs = SUM(Fact_Sales[COGS_USD])
      Quantity = SUM(Fact_Sales[quantity])
      Sales = SUM(Fact_Sales[Sales_USD])
      Gross Profit = [Sales]-[COGs]
     ```
-  - create DAX: The PYTD_Sales measure calculates the sales amount for the same period last       year, but only for dates where the Inpast column is TRUE.
-  If today is September 15, 2024, PYTD_Sales will calculate the sales from January 1, 2023, to    September 15, 2023, but only for those dates marked as TRUE in the Inpast column.
-
+  - The **PYTD_Sales** measure calculates sales from the same period last year using the **SAMEPERIODLASTYEAR** function. It adjusts the context to filter only the dates from last year and applies the Inpast = TRUE condition to ensure only relevant past dates are included. This measure is useful for year-over-year sales comparisons.
+ For example: if today is September 15, 2024, **PYTD_Sales** will calculate the sales from January 1, 2023, to September 15, 2023, but only for those dates marked as TRUE in the Inpast column.
      ```bash
      PYTD_Sales = 
      CALCULATE(
@@ -68,7 +67,7 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
             	Dim_Date[Inpast] = TRUE
 )
     ```
-  - create DAX
+  - create DAX measure as **PYTD_Quantity**,  **PYTD_GrossProfit** which is similar to **PYTD_Sales**
      ```bash
      PYTD_Quantity = 
                  CALCULATE(
@@ -84,7 +83,7 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
      	       Dim_Date[Inpast] = TRUE
      )
     ```
-  - create DAX
+  - **YTD_Sales, YTD_Quantity, and YTD_GrossProfit** calculate the **year-to-date** totals for sales, quantity, and gross profit respectively, up to the current date in the year, using the **TOTALYTD** function on the **Fact_Sales[Date_Time]** column.
      ```bash
      YTD_Sales = TOTALYTD([Sales], Fact_Sales[Date_Time])
 
@@ -92,7 +91,8 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
      
      YTD_GrossProfit = TOTALYTD([GrossProfit], Fact_Sales[Date_Time])
     ```
-  - create DAX
+  - **S_PYTD** dynamically returns **PYTD Sales, Quantity, or Gross Profit** depending on what the user selects in the slicer **(Slc_Values[Values])** (Note: create a new table **Slc_Value** including **Sales, Quantity, and Gross Profit**).
+This allows for flexibility in viewing different metrics' prior year-to-date performance based on user selection.
      ```bash
      S_PYTD =
      VAR selected_value = SELECTEDVALUE(Slc_Values[Values])
@@ -105,7 +105,7 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
      RETURN
      result
     ```
-  - create DAX
+  - Create a DAX measure that functions similarly to S_YTD
      ```bash
      S_YTD =
      VAR selected_value = SELECTEDVALUE(Slc_Values[Values])
@@ -118,14 +118,15 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
      RETURN
      result
     ```
-  - create DAX
+  - **YTD vs PYTD** calculates the change in performance between the current year-to-date and the previous year-to-date. **GP%** calculates the percentage of gross profit relative to sales, providing insight into how much profit is generated from sales.
      ```bash
      YTD vs PYTD = [S_YTD] - [S_PYTD]
      GP% = DIVIDE([Gross Profit], [Sales])
     ```
-  - create model view
-  - create charts
-  - create DAX
+  **Star Model Linking**
+  **Charts Visualization**
+  **Tydying up: Titles and Formating**
+  - The three DAX expressions, which are dynamically creating chart titles based on user selections from a slicer **Slc_Values[Values]**. Furthermore, the charts are formated and restyled based on personal perspective.
      ```bash
      _Waterfall_title = SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month - Country - Product"
      _Column Chart title = SELECTEDVALUE(Slc_Values[Values]) & " YTD & PYTD | Month"
