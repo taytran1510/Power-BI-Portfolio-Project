@@ -124,7 +124,7 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
      GP% = DIVIDE([Gross Profit], [Sales])
     ```
   **Star Model Linking**
-  ![3dash](https://github.com/tushar2704/Superstore-Sales-Dashboard-with-Streamlit/assets/66141195/ca77655e-b101-44e9-b5e7-fcdbf5aae388)
+ 
   **Charts Visualization**
   **Tydying up: Titles and Formating**
   - The three DAX expressions, which are dynamically creating chart titles based on user selections from a slicer **Slc_Values[Values]**. Furthermore, the charts are formated and restyled based on personal perspective.
@@ -142,5 +142,4 @@ Superstore Sales with Streamlit is a data visualization and analysis project tha
 
 ![3dash](https://github.com/tushar2704/Superstore-Sales-Dashboard-with-Streamlit/assets/66141195/ca77655e-b101-44e9-b5e7-fcdbf5aae388)
 
- 
-1
+
