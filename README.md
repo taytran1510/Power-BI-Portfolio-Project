@@ -65,7 +65,7 @@ A condensed, dynamic performance report that utilises **SWITCH** measures and co
  	           [Sales],
  	           SAMEPERIODLASTYEAR(Dim_Date[Date]),
             	Dim_Date[Inpast] = TRUE
-)
+    )
     ```
   - create DAX measure as **PYTD_Quantity**,  **PYTD_GrossProfit** which is similar to **PYTD_Sales**
      ```bash
@@ -105,7 +105,7 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
      RETURN
      result
     ```
-  - Create a DAX measure that functions similarly to S_YTD
+  - Create a DAX measure that functions similarly to **S_YTD**
      ```bash
      S_YTD =
      VAR selected_value = SELECTEDVALUE(Slc_Values[Values])
@@ -126,14 +126,17 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
   **Star Model Linking**
  ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/StarModelView.png)
   **Charts Visualization**
-  **Tydying up: Titles and Formating**
+ ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/Review2024.png)
+ ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewSales.png)
+ ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewGrossProfit.png)
+ ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewQuantity.png)
+  **[Addition] Tydying up: Titles and Formating**
   - The three DAX expressions, which are dynamically creating chart titles based on user selections from a slicer **Slc_Values[Values]**. Furthermore, the charts are formated and restyled based on personal perspective.
      ```bash
      _Waterfall_title = SELECTEDVALUE(Slc_Values[Values]) & " YTD vs PYTD | Month - Country - Product"
      _Column Chart title = SELECTEDVALUE(Slc_Values[Values]) & " YTD & PYTD | Month"
      _Scatter title = "Account Profitability Segmentation | GP% and " & SELECTEDVALUE(Slc_Values[Values])
     ```
-![sales](https://github.com/tushar2704/tushar2704-GIFs/blob/main/salesd1.gif)
 
 ## [Project 2: Superstore Sales Dashboard with Streamlit](https://github.com/tushar2704/Superstore-Sales-Dashboard-with-Streamlit)
 
