@@ -126,6 +126,7 @@ This allows for flexibility in viewing different metrics' prior year-to-date per
   **Star Model Linking**
  ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/StarModelView.png)
   **Charts Visualization**
+  - Building up: Treemap, Combo Chart, Scatter Chart with Zoom Slider
  ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/Review2024.png)
  ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewSales.png)
  ![3dash](https://github.com/taytran1510/Power-BI-Portfolio-Project/blob/main/Images/ReviewGrossProfit.png)
